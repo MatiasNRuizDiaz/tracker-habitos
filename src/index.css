@@ -1,3 +1,657 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===== MODERN DESIGN SYSTEM ===== */
+
+/* --- Custom Properties (Color Palette) --- */
+:root {
+    /* Primary - Indigo tones */
+    --primary-50: #eef2ff;
+    --primary-100: #e0e7ff;
+    --primary-500: #6366f1;
+    --primary-600: #4f46e5;
+    --primary-700: #4338ca;
+
+    /* Neutral - Slate tones */
+    --neutral-50: #f8fafc;
+    --neutral-100: #f1f5f9;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f172a;
+
+    /* Accent colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+
+    /* Animation durations */
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+}
+
+/* --- Base Styles --- */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+    background-color: var(--primary-100);
+    color: var(--primary-700);
+}
+
+/* === DARK MODE - COMPREHENSIVE === */
+.dark body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f1f5f9;
+}
+
+.dark ::selection {
+    background-color: var(--primary-600);
+    color: white;
+}
+
+/* Smooth transitions */
+body,
+.dark body,
+body *,
+.dark body * {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* ===== BACKGROUNDS ===== */
+.dark .bg-white,
+.dark .bg-white\/60,
+.dark .bg-white\/80 {
+    background-color: #1e293b !important;
+}
+
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+    background-color: #334155 !important;
+}
+
+.dark .hover\:bg-white\/80:hover,
+.dark .hover\:bg-gray-200:hover {
+    background-color: #475569 !important;
+}
+
+/* Main gradient background */
+.dark .bg-gradient-to-br.from-slate-50,
+.dark .from-slate-50 {
+    --tw-gradient-from: #0f172a !important;
+}
+
+.dark .via-indigo-50\/30 {
+    --tw-gradient-via: rgba(30, 27, 75, 0.3) !important;
+}
+
+.dark .to-violet-50\/50 {
+    --tw-gradient-to: rgba(46, 16, 101, 0.3) !important;
+}
+
+/* Sidebar */
+.dark aside {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border-color: #334155 !important;
+}
+
+/* Cards */
+.dark .rounded-3xl.shadow-xl,
+.dark .rounded-2xl {
+    background-color: #1e293b !important;
+}
+
+/* ===== TEXT COLORS ===== */
+.dark .text-gray-800,
+.dark .text-gray-900 {
+    color: #f1f5f9 !important;
+}
+
+.dark .text-gray-700 {
+    color: #e2e8f0 !important;
+}
+
+.dark .text-gray-600 {
+    color: #cbd5e1 !important;
+}
+
+.dark .text-gray-500 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-gray-400 {
+    color: #64748b !important;
+}
+
+.dark .text-gray-300 {
+    color: #94a3b8 !important;
+}
+
+/* Gradient text fix */
+.dark .bg-clip-text.text-transparent {
+    background-image: linear-gradient(to right, #c7d2fe, #a5b4fc) !important;
+    -webkit-background-clip: text !important;
+}
+
+.dark .from-gray-800.to-gray-600 {
+    --tw-gradient-from: #c7d2fe !important;
+    --tw-gradient-to: #a5b4fc !important;
+}
+
+/* ===== BORDERS ===== */
+.dark .border-white,
+.dark .border-white\/50,
+.dark .border-white\/80 {
+    border-color: #334155 !important;
+}
+
+.dark .border-gray-50,
+.dark .border-gray-100 {
+    border-color: #334155 !important;
+}
+
+/* ===== SHADOWS ===== */
+.dark .shadow-xl,
+.dark .shadow-lg,
+.dark .shadow-md {
+    --tw-shadow-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .shadow-gray-200\/30,
+.dark .shadow-gray-200\/50,
+.dark .shadow-gray-400\/20 {
+    --tw-shadow-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ===== GRADIENTS FOR CARDS ===== */
+.dark .from-gray-50\/80 {
+    --tw-gradient-from: rgba(30, 41, 59, 0.8) !important;
+}
+
+.dark .to-white,
+.dark .from-white {
+    --tw-gradient-from: #1e293b !important;
+    --tw-gradient-to: #1e293b !important;
+}
+
+.dark .to-gray-50\/50 {
+    --tw-gradient-to: rgba(30, 41, 59, 0.5) !important;
+}
+
+/* ===== FORM ELEMENTS ===== */
+.dark input[type="text"],
+.dark input[type="file"] {
+    background-color: #0f172a !important;
+    border-color: #475569 !important;
+    color: #f1f5f9 !important;
+}
+
+.dark input::placeholder {
+    color: #64748b !important;
+}
+
+/* ===== CHECKBOXES (unchecked) ===== */
+.dark button.bg-gray-100 {
+    background-color: #334155 !important;
+}
+
+/* ===== SPECIAL UI ELEMENTS ===== */
+/* Progress section gradients */
+.dark .from-indigo-50,
+.dark .to-violet-100,
+.dark .from-indigo-50\/80,
+.dark .to-purple-50\/80 {
+    --tw-gradient-from: rgba(30, 27, 75, 0.4) !important;
+    --tw-gradient-to: rgba(46, 16, 101, 0.4) !important;
+}
+
+/* Habit row hover */
+.dark .hover\:from-gray-50\/50:hover {
+    --tw-gradient-from: rgba(51, 65, 85, 0.5) !important;
+}
+
+.dark .hover\:to-indigo-50\/30:hover {
+    --tw-gradient-to: rgba(30, 27, 75, 0.3) !important;
+}
+
+/* Bottom nav mobile */
+.dark nav.fixed.bottom-0 {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+}
+
+/* Modal overlays */
+.dark .bg-gray-900\/60 {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Table header */
+.dark thead tr {
+    background: linear-gradient(to right, rgba(30, 41, 59, 0.8), #1e293b) !important;
+}
+
+/* Active nav buttons */
+.dark .text-gray-500.hover\:bg-white\/80:hover {
+    background-color: rgba(51, 65, 85, 0.8) !important;
+    color: #e2e8f0 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--neutral-300);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--neutral-400);
+}
+
+/* --- Keyframe Animations --- */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Subtle Pulse */
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Slide Down */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Check Pop */
+@keyframes checkPop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Flicker - for lightbulb splash screen */
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    20% {
+        opacity: 0.2;
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    70% {
+        opacity: 0.95;
+    }
+
+    80% {
+        opacity: 0.3;
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+}
+
+.animate-flicker {
+    animation: flicker 1.2s ease-in-out infinite;
+}
+
+/* Progress Circle */
+@keyframes progressDraw {
+    from {
+        stroke-dashoffset: var(--circumference);
+    }
+
+    to {
+        stroke-dashoffset: var(--offset);
+    }
+}
+
+/* Floating orb animations */
+@keyframes floatSlow {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(10px, -20px) scale(1.02);
+    }
+
+    50% {
+        transform: translate(-5px, -10px) scale(0.98);
+    }
+
+    75% {
+        transform: translate(15px, 5px) scale(1.01);
+    }
+}
+
+@keyframes floatSlower {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(-15px, 10px) scale(1.03);
+    }
+
+    66% {
+        transform: translate(10px, -15px) scale(0.97);
+    }
+}
+
+@keyframes pulseSlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes pulseSlower {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1.15);
+    }
+}
+
+.animate-float-slow {
+    animation: floatSlow 20s ease-in-out infinite;
+}
+
+.animate-float-slower {
+    animation: floatSlower 25s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+    animation: pulseSlow 8s ease-in-out infinite;
+}
+
+.animate-pulse-slower {
+    animation: pulseSlower 12s ease-in-out infinite;
+}
+
+/* Confetti fall animation for celebration modal */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.animate-confetti-fall {
+    animation: confettiFall 3s ease-in-out forwards;
+}
+
+/* --- Animation Utility Classes --- */
+
+.animate-fade-in {
+    animation: fadeIn var(--duration-normal) ease-out forwards;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp var(--duration-slow) ease-out forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn var(--duration-normal) ease-out forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown var(--duration-normal) ease-out forwards;
+}
+
+.animate-check-pop {
+    animation: checkPop var(--duration-fast) ease-out forwards;
+}
+
+/* Stagger Animation Delays */
+.stagger-1 {
+    animation-delay: 50ms;
+}
+
+.stagger-2 {
+    animation-delay: 100ms;
+}
+
+.stagger-3 {
+    animation-delay: 150ms;
+}
+
+.stagger-4 {
+    animation-delay: 200ms;
+}
+
+.stagger-5 {
+    animation-delay: 250ms;
+}
+
+.stagger-6 {
+    animation-delay: 300ms;
+}
+
+/* Elements with stagger start invisible */
+[class*="stagger-"] {
+    opacity: 0;
+}
+
+/* --- Glassmorphism Effects --- */
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Card Hover Effects --- */
+
+.card-hover {
+    transition: transform var(--duration-normal) ease,
+        box-shadow var(--duration-normal) ease,
+        border-color var(--duration-normal) ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Button Effects --- */
+
+.btn-press {
+    transition: transform var(--duration-fast) ease,
+        box-shadow var(--duration-fast) ease;
+}
+
+.btn-press:active {
+    transform: scale(0.96);
+}
+
+/* --- Focus States --- */
+
+.focus-ring:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+}
+
+/* --- Gradient Accents --- */
+
+.gradient-primary {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+}
+
+.gradient-warm {
+    background: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+}
+
+.gradient-cool {
+    background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+}
+
+/* --- Responsive Helpers --- */
+
+/* Safe area for iOS */
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* --- Print Styles --- */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
